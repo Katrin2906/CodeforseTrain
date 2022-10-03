@@ -1,21 +1,23 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Words {
-    public static void main(String[] args) {
-        List<String> list = new ArrayList<>(4);
-        list.add(0, "word");
-        list.add(1, "localization");
-        list.add(2, "internationalization");
-        list.add(3, "pneumonoultramicroscopicsilicovolcanoconiosis");
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-        for (String element : list) {
-            if (element.length() > 10) {
-                StringBuilder newElement = new StringBuilder(element);
-                newElement.replace(1, element.length()-1, String.valueOf((element.length()-2)));
-                System.out.println(newElement);
+        int startN = Integer.parseInt(bufferedReader.readLine());
+
+        while (startN > 0) {
+            String string = bufferedReader.readLine();
+            int length = string.length();
+            if (length <= 10) {
+                System.out.println(string);
             } else {
-                System.out.println(element);
+                int word = length - 2;
+                System.out.print((char) string.charAt(0));
+                System.out.print((word + ""));
+                System.out.println((char) string.charAt(length - 1) + "");
             }
         }
     }
