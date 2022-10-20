@@ -1,29 +1,32 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class FizzBuzz {
     public List<String> fizzBuzz(int n) {
         List<String> ans = new ArrayList<String>();
-
+        HashMap<Integer, String> fizzBuzzDict =
+                new HashMap<Integer, String>() {
+                    {
+                        put(3, "Fizz");
+                        put(5, "Buzz");
+                    }
+                };
+        List<Integer> divisors = new ArrayList<>(Arrays.asList(3, 5));
         for (int num = 1; num <= n; num++) {
-
-            boolean divisibleBy3 = (num % 3 == 0);
-            boolean divisibleBy5 = (num % 5 == 0);
 
             String numAnsStr = "";
 
-            if (divisibleBy3) {
-                numAnsStr += "Fizz";
-            }
-
-            if (divisibleBy5) {
-                numAnsStr += "Buzz";
+            for (Integer key : divisors) {
+                if (num % key == 0) {
+                    numAnsStr += fizzBuzzDict.get(key);
+                }
             }
 
             if (numAnsStr.equals("")) {
                 numAnsStr += Integer.toString(num);
             }
-
             ans.add(numAnsStr);
         }
         return ans;

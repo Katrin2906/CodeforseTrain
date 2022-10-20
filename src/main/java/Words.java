@@ -1,24 +1,20 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 
 public class Words {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter out = new PrintWriter(System.out);
+        int testNumber = Integer.parseInt(bufferedReader.readLine());
 
-        int startN = Integer.parseInt(bufferedReader.readLine());
-
-        while (startN > 0) {
-            String string = bufferedReader.readLine();
-            int length = string.length();
-            if (length <= 10) {
-                System.out.println(string);
-            } else {
-                int word = length - 2;
-                System.out.print((char) string.charAt(0));
-                System.out.print((word + ""));
-                System.out.println((char) string.charAt(length - 1) + "");
-            }
+        while (testNumber-- > 0) {
+            String longWord = bufferedReader.readLine();
+            if (longWord.length() > 10) {
+                out.println(Character.toString(longWord.charAt(0)) + (longWord.length() - 2) + Character.toString(longWord.charAt(longWord.length() - 1)));
+            } else out.println(longWord);
         }
+        out.flush();
     }
 }
