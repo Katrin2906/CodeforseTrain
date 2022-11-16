@@ -6,13 +6,12 @@ import java.util.List;
 public class FizzBuzz {
     public List<String> fizzBuzz(int n) {
         List<String> ans = new ArrayList<String>();
-        HashMap<Integer, String> fizzBuzzDict =
-                new HashMap<Integer, String>() {
-                    {
-                        put(3, "Fizz");
-                        put(5, "Buzz");
-                    }
-                };
+        HashMap<Integer, String> fizzBuzzDict = new HashMap<>() {
+            {
+                put(3, "Fizz");
+                put(5, "Buzz");
+            }
+        };
         List<Integer> divisors = new ArrayList<>(Arrays.asList(3, 5));
         for (int num = 1; num <= n; num++) {
 
