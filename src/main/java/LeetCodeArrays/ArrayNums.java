@@ -1,3 +1,5 @@
+package LeetCodeArrays;
+
 public class ArrayNums {
 
     public int findMaxConsecutiveOnes(int[] nums) {
