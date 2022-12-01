@@ -5,7 +5,7 @@ import java.util.List;
 
 public class FizzBuzz {
     public List<String> fizzBuzz(int n) {
-        List<String> ans = new ArrayList<String>();
+        List<String> ans = new ArrayList<>();
         HashMap<Integer, String> fizzBuzzDict = new HashMap<>() {
             {
                 put(3, "Fizz");
